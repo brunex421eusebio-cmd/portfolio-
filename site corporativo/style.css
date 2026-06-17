@@ -1,0 +1,407 @@
+/* ================= BASE ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #FFF7F9, #9CCFD6);
+    overflow-x: hidden;
+}
+
+/* 🌟 FUNDO CREMOSO */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.7), transparent 60%),
+        radial-gradient(circle at 70% 80%, rgba(255,77,109,0.12), transparent 60%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ================= HEADER ================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+}
+
+.logo img {
+    width: 55px;
+}
+
+/* MENU */
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 22px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+/* underline animado */
+.menu a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #FFF766;
+    transition: 0.3s;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* ================= BANNER ================= */
+.banner {
+    position: relative;
+    height: 95vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,77,109,0.25),
+        rgba(0,0,0,0.25),
+        rgba(156,207,214,0.25)
+    );
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    color: white;
+}
+
+.banner-text h1 {
+    font-size: 52px;
+    text-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.banner-text p {
+    font-size: 18px;
+    color: #FFF766;
+    margin-top: 10px;
+}
+
+/* BOTÃO */
+.btn-banner {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 30px;
+    background: #FF4D6D;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.btn-banner:hover {
+    background: #FFA028;
+    transform: translateY(-3px);
+}
+
+/* ================= SOBRE ================= */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    padding: 60px;
+    margin: 40px;
+    background: white;
+    border-radius: 25px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+}
+
+.content img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 20px;
+}
+
+.text-content h2 {
+    color: #FF4D6D;
+    font-size: 28px;
+}
+
+.text-content p {
+    color: #555;
+    line-height: 1.7;
+}
+
+/* ================= SABORES ================= */
+.servicos {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.servico-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px;
+}
+
+.servico {
+    width: 230px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+}
+
+.servico::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255,77,109,0.08),
+        rgba(255,160,40,0.08)
+    );
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.servico::after {
+    content: "";
+    position: absolute;
+    top: -120%;
+    left: -120%;
+    width: 80%;
+    height: 250%;
+    background: rgba(255,255,255,0.25);
+    transform: rotate(25deg);
+    transition: 0.8s;
+}
+
+.servico:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(255,77,109,0.20);
+}
+
+.servico:hover::before {
+    opacity: 1;
+}
+
+.servico:hover::after {
+    left: 180%;
+}
+
+.servico img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.servico:hover {
+    transform: translateY(-10px);
+}
+
+.servico:hover img {
+    transform: scale(1.08);
+}
+
+.servico h3 {
+    padding: 10px;
+    color: #5BAE4A;
+}
+
+/* ================= CLIENTES ================= */
+.team {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: all 0.4s ease;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    top: -120%;
+    left: -120%;
+    width: 80%;
+    height: 250%;
+    background: rgba(255,255,255,0.25);
+    transform: rotate(25deg);
+    transition: 0.8s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+}
+
+.card:hover::after {
+    left: 180%;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.servico img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.servico:hover img {
+    transform: scale(1.08);
+}
+
+/* ================= NEWSLETTER ================= */
+.newsletter {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(90deg, #FF4D6D, #FFA028);
+    color: white;
+}
+
+.newsletter input {
+    padding: 14px;
+    width: 260px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+}
+
+.newsletter button {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 30px;
+    background: #FFF766;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background: #FF4D6D;
+    text-align: center;
+    color: white;
+    padding: 40px 20px;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.socials img {
+    width: 35px;
+    filter: brightness(0) invert(1);
+    transition: 0.3s;
+}
+
+.socials img:hover {
+    transform: scale(1.2);
+}
+
+/* ================= WHATSAPP ================= */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 768px) {
+
+    .banner-text h1 {
+        font-size: 32px;
+    }
+
+    .content {
+        margin: 20px;
+        padding: 30px;
+    }
+
+    .menu ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
